@@ -1,0 +1,161 @@
+<<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Лаба пять</title>
+        <style>
+            .counter {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+            }
+
+            .counter button {
+                margin: 0 10px;
+                padding: 5px 10px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--Задача 1  -->
+        <script>
+            const arr = [1, 6, -1, 22, 13];
+            const max = Math.max(...arr);
+            const min = Math.min(...arr);
+
+            console.log(`Максимум: ${max}`);
+            console.log(`Минимум: ${min}`);
+        </script>
+
+        <!--Задача 2  -->
+        <script>
+            function reverseString(str) {
+                return str.split('').reverse().join('');
+            }
+
+            const str = "!тевирП";
+            const reversedStr = reverseString(str);
+            console.log(reversedStr);
+        </script>
+        <!--Задача 3  -->
+        <script>
+            const arr = [3, 5, 8, 13, 21, 42];
+            let sum = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) {
+                    sum += Math.sqrt(arr[i]);
+                }
+            }
+
+            console.log(sum);
+        </script>
+
+        <!--Задача 4  -->
+        <script>
+            function isAnagram(str1, str2) {
+
+                str1 = str1.toLowerCase().replace(/\s/g, '');
+                str2 = str2.toLowerCase().replace(/\s/g, '');
+
+                if (str1.length !== str2.length) {
+                    return false;
+                }
+                const sortedStr1 = str1.split('').sort().join('');
+                const sortedStr2 = str2.split('').sort().join('');
+
+                return sortedStr1 === sortedStr2;
+            }
+
+            console.log(isAnagram("Лунь", "нуль")); // true
+            console.log(isAnagram("Лунь", "ноль")); // false
+        </script>
+
+        <!--Задача 5  -->
+        <script>
+            function isPalindrome(str) {
+                const cleanStr = str.replace(/[^\w]/g, '').toLowerCase();
+                const reversedStr = cleanStr.split('').reverse().join('');
+
+                return cleanStr === reversedStr;
+            }
+
+            console.log(isPalindrome("Не гни папин ген"));
+            console.log(isPalindrome("123"));
+
+        </script>
+        <!--Задача 6  -->
+        <script>
+            function printFibonacciNumbers() {
+                let a = 0;
+                let b = 1;
+
+                console.log(a); // Выводим первое число Фибоначчи
+
+                const intervalId = setInterval(() => {
+                    console.log(b); // Выводим текущее число Фибоначчи
+
+                    const nextNumber = a + b;
+                    a = b;
+                    b = nextNumber;
+                }, 1000);
+            }
+
+            printFibonacciNumbers();
+        </script>
+
+        <!--Задача 7  -->
+        <script>
+            delay(5).then(() => {
+                console.log("Прошло 5 секунд");
+            });
+        </script>
+
+        <!--Задача 9  -->
+        <div class="counter">
+            <button id="decrement">-</button>
+            <span id="value">0</span>
+            <button id="increment">+</button>
+        </div>
+
+        <script>
+            // Get the necessary elements
+            const decrementButton = document.getElementById('decrement');
+            const incrementButton = document.getElementById('increment');
+            const valueElement = document.getElementById('value');
+
+            // Set initial value
+            let value = 0;
+            valueElement.textContent = value;
+
+            // Add event listeners to the buttons
+            decrementButton.addEventListener('click', () => {
+                value--;
+                valueElement.textContent = value;
+            });
+
+            incrementButton.addEventListener('click', () => {
+                value++;
+                valueElement.textContent = value;
+            });
+        </script>
+
+
+        <!--Задача 10 -->
+
+        <script>
+            let i;
+            for (i = 1; i <= 3; i++) {
+                (function (x) {
+                    setTimeout(() => console.log(x), 1000);
+                })(i);
+            }
+        </script>
+
+    </body>
+
+    </html>
